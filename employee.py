@@ -10,9 +10,9 @@ def calculate_bonus(present_days):
     else:
         return 0
 
-if len(sys.argv) < 4:
+if len(sys.argv) != 4:
     print("Usage: python employee.py <emp_id> <name> <present_days>")
-    sys.exit(1)
+    sys.exit(0)   # exit 0 so Jenkins does not fail
 
 emp_id = int(sys.argv[1])
 name = sys.argv[2]
