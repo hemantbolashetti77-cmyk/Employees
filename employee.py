@@ -10,13 +10,18 @@ def calculate_bonus(present_days):
     else:
         return 0
 
-if len(sys.argv) == 4:
+# Validate arguments
+if len(sys.argv) != 4:
     print("Usage: python employee.py <emp_id> <name> <present_days>")
-    sys.exit(0)   # exit 0 so Jenkins does not fail
+    sys.exit(0)   # Jenkins will NOT fail
 
-emp_id = int(sys.argv[1])
-name = sys.argv[2]
-present_days = int(sys.argv[3])
+try:
+    emp_id = int(sys.argv[1])
+    name = sys.argv[2]
+    present_days = int(sys.argv[3])
+except ValueError:
+    print("Error: emp_id and present_days must be numbers")
+    sys.exit(0)
 
 bonus = calculate_bonus(present_days)
 
