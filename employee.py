@@ -10,14 +10,17 @@ def calculate_bonus(present_days):
     else:
         return 0
 
-if __name__ == "__main__":
-    emp_id = int(sys.argv[1])
-    name = sys.argv[2]
-    present_days = int(sys.argv[3])
+if len(sys.argv) < 4:
+    print("Usage: python employee.py <emp_id> <name> <present_days>")
+    sys.exit(1)
 
-    bonus = calculate_bonus(present_days)
+emp_id = int(sys.argv[1])
+name = sys.argv[2]
+present_days = int(sys.argv[3])
 
-    print("Employee ID:", emp_id)
-    print("Employee Name:", name)
-    print("Present Days:", present_days)
-    print("Bonus:", bonus)
+bonus = calculate_bonus(present_days)
+
+print("Employee ID:", emp_id)
+print("Employee Name:", name)
+print("Present Days:", present_days)
+print("Bonus:", bonus)
